@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Dosis } from "next/font/google";
+import { Dosis, Inter } from "next/font/google";
 import Image from "next/image";
 
-const dosis = Dosis({ subsets: ["latin"] });
+const dosis = Dosis({ subsets: ["latin"], variable: "--font-dosis" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-dosis" });
 
 export const metadata: Metadata = {
   title: "habits App",
@@ -18,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${dosis.className} flex items-center flex-col mt-10 bg-nutral-900`}
+        className={`${dosis.variable} ${inter.variable} flex items-center flex-col mt-10 bg-nutral-900`}
       >
         <Image src="/images/logo.svg" width={200} height={200} alt="logo" />
         {children}
