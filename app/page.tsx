@@ -1,3 +1,4 @@
+import DayState from "@/components/DayState";
 import Image from "next/image";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       "2023-11-07": false,
     },
   };
+  const weekDays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
   return (
     <main className="container relative flex flex-col gap-8 px-4 pt-16">
       {habits === null ||
@@ -25,7 +27,7 @@ export default function Home() {
         ))}
       {habits !== null &&
         Object.entries(habits).map(([habit, habitStreak]) => (
-          <div key={habit}>
+          <div key={habit} className="flex flex-col gap-2">
             <div className="flex justify-between items-center">
               <span className="text-xl font-light text-white font-sans">
                 {habit}
@@ -39,6 +41,16 @@ export default function Home() {
                 />
               </button>
             </div>
+            <section className="grid grid-cols-7 bg-neutral-800 rounded-md p-2">
+              {weekDays.map((day) => (
+                <div key={day} className="flex flex-col">
+                  <span className=" text-white font-sans text-xs text-center">
+                    {day}
+                  </span>
+                  <DayState day={undefined} />
+                </div>
+              ))}
+            </section>
           </div>
         ))}
     </main>
