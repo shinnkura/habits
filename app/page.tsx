@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   const habits = {
     水を飲む: {
@@ -28,7 +30,14 @@ export default function Home() {
               <span className="text-xl font-light text-white font-sans">
                 {habit}
               </span>
-              <button>delete</button>
+              <button>
+                <Image
+                  src="/images/trash.svg"
+                  width={20}
+                  height={20}
+                  alt="trash"
+                />
+              </button>
             </div>
           </div>
         ))}
